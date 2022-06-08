@@ -2,15 +2,18 @@ package com.employee.example.entity;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class EmployeeStream {
 
     private String firstName;
@@ -24,4 +27,10 @@ public class EmployeeStream {
         this.salary=salary;
         this.projects=projects;
     }
+    public void addNewProject(String project){
+        if(projects==null)
+            projects = new ArrayList<>();
+        projects.add(project);
+    }
+
 }
