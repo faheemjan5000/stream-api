@@ -14,7 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class EmployeeStream {
+                             //used this comaprable to be able to use TreeSet which sort elements in the set based on a comparable
+public class EmployeeStream implements Comparable<EmployeeStream> {
 
     private String firstName;
     private String lastName;
@@ -33,4 +34,8 @@ public class EmployeeStream {
         projects.add(project);
     }
 
+    @Override
+    public int compareTo(EmployeeStream o) {
+        return (int) (this.salary-o.getSalary());
+    }
 }
