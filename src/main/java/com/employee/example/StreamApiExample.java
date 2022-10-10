@@ -90,6 +90,15 @@ public class StreamApiExample {
 				.forEach(empp->System.out.println(empp));
 
 	}
+	
+	  private static List<Employee> listOfEmployeesWorkingOnSpecificProject() {
+        System.out.println("inside listOfEmployeesWorkingOnSpecificProject() method");
+      //return all those employees who are working on project 4
+       return employees.stream()
+                   .filter(employee -> employee.getProjects().contains("project4"))
+                .collect(Collectors.toList());
+    }
+	
 	private static void mapExample() {
 		//it maps one object with another object and return the stream. get each employee and increase its salary by 10%
 		System.out.println("map : *********************************************");
